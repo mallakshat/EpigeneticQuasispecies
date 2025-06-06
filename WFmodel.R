@@ -5,7 +5,7 @@ u = 1e-6
 mut = u
 
 #define epigenetic locus
-loci = c(1)                                            #location which has an epigenetic switch
+loci = c(1)                                            #location which has an epigenetic switch - arbitrarily defined as 1st locus in this work
 indepi = matrix(0, ncol = length(loci), nrow = nodes)  #vector to store which genotype is the same as an epigenetic switch from every genotype
 for(bb in 1:length(loci))
 {
@@ -32,12 +32,12 @@ indices5 = which(numpeaks==peaks_interest)
 nsim2 = length(indices5)
 
 
-rd = c(0,0.1)
-meanfit = matrix(0,nrow = nsim2, ncol = length(rd))
-rankpeak = matrix(0,nrow = nsim2, ncol = length(rd))
-entropy = matrix(0,nrow = nsim2, ncol = length(rd))
-freqpeaks = matrix(0,nrow = nsim2, ncol = length(rd))
-globalpeak = matrix(0,nrow = nsim2, ncol = length(rd))
+rd = c(0,0.1) #epigenetic switching rates to loop over. 
+meanfit = matrix(0,nrow = nsim2, ncol = length(rd))     #vector to store mean final fitness for all landscapes
+rankpeak = matrix(0,nrow = nsim2, ncol = length(rd))    #vector to store mean final rank for all landscapes
+entropy = matrix(0,nrow = nsim2, ncol = length(rd))     #vector to store entropy (or variability) of final outcomes for all landscapes
+freqpeaks = matrix(0,nrow = nsim2, ncol = length(rd))   #vector to store how often simulation ends on a fitness peak for each landscape
+globalpeak = matrix(0,nrow = nsim2, ncol = length(rd))  #vector to store probability of reaching global peak for each landscape
 
 for (count2 in (1:length(rd))) 
 {
@@ -55,7 +55,7 @@ for (count2 in (1:length(rd)))
     indrankpeaks = rankpeaks[[indices5[count]]]
     fitepi = fit[indepi]                  #fitness of each epigenetic "on" state of each genotype
     
-    reps = 100                            #number of simulations for one landscape
+    reps = 200                            #number of simulations for one landscape
     registerDoParallel(cores = 63)
     #for(a in 1:reps)
     p <- foreach(a = 1:reps,.combine = 'rbind',.errorhandling = 'pass')%dopar%
@@ -69,7 +69,7 @@ for (count2 in (1:length(rd)))
         #initial epigenetic
         epi = numeric(nodes)            #number of switched individuals of each genotype
         
-        time = 5e+3                     #number of generations
+        time = 5e+4                     #number of generations
         n = matrix(0, nrow = nodes, ncol = time)  #matrix to store number of individuals of each genotype in every generation
         n[,1] = ini
         numepi = matrix(0, nrow = nodes, ncol = time)  #matrix to store number of individuals of each genotype in every generation
