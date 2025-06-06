@@ -130,26 +130,11 @@ for (count2 in (1:length(rd)))
           n[,i+1] = nb
           lastepi=epi
           numepi[,i+1] = epi
-          #check=0
-          #win = which(nb==max(nb))
-          #if(any(win==indpeaks))
-          #{
-          #  if(nb[win]>(0.999*k))
-          #  {
-          #    check=1
-          #  }
-          #}
-          #if(check==1)
-          #{
-          #  break
-          #}
         }
         
         #Outcome
         win = which(n[,time]==max(n[,time]))
         val = any(win==indpeaks)
-        sorted_peaks = indpeaks[order(fit[indpeaks], decreasing = TRUE)]
-        #peak_rank <- match(win, sorted_peaks)
         if(val==TRUE)
         {
           peak_rank = indrankpeaks[which(indpeaks==win)]
@@ -157,8 +142,6 @@ for (count2 in (1:length(rd)))
         {
           peak_rank = NA
         }
-        
-        
         finalfitness = fit*(n[,time]-epi) + fitepi*epi
         finalfit = sum(finalfitness)/sum(n[,time])
         c(peak_rank,finalfit)
@@ -173,8 +156,6 @@ for (count2 in (1:length(rd)))
     globalpeak[count,count2] = sum(p[,1]==1)/length(p[,1])
     rankfreq = table(p[,1])/length(p[,1])
     entropy[count,count2] = -sum(rankfreq * log2(rankfreq))
-    
     freqpeaks[count,count2] = length(p[,1])/reps
   }
-  
 }
