@@ -18,7 +18,7 @@ genotypes <- apply(combinations, 1, paste0, collapse = "")  #generating list of 
 landscapes = matrix(0,nrow=nodes,ncol=nsim)   #matrix to store fitness values of all genotypes
 numpeaks = numeric(nsim)                      #vector to store number of peaks of each landscape
 listpeaks = list()                            #vector to store locus of each peak of each landscape
-sdhoc = 0.25                                  #standard deviation of pairwise epistasis
+sdhoc = 0.25                                  #standard deviation for house of cards model, used to draw fitness for each genotype
 rankpeaks = list()
 
 #while(i<nsim) #use if generating landscapes of a given ruggedness or number of peaks
@@ -42,7 +42,7 @@ for(i in 1:nsim)  #loop for generating nsim number of landscapes
       s = 0
     }
     fit[z] = 1 + s
-    if(fit[z] < 0)
+    if(fit[z] < 0) #ensure fitness is greater than equal to zero
     {
       fit[z] = 0
     }
