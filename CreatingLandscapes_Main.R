@@ -44,6 +44,10 @@ for(i in 1:nsim)  #loop for generating nsim number of landscapes
     else{
       fit[z] = 1 + sum(inds[positions])
     }
+    if(fit[z]<0)
+      {
+        fit[z] = 0
+      }
   }
   #estimate number of peaks
   for(z in 1:nodes)
