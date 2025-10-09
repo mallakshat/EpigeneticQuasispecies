@@ -1,5 +1,56 @@
 #Run this after generating landscapes using any one of the models. Variables defined in that script are used implicitly here. 
+#Or to use the landscapes already used in the paper - 
 
+nsim=1000
+landscapes_store = read.csv("Figures/LandscapesAll.csv")
+
+combinations <- expand.grid(rep(list(c(0, 1)), L))          
+genotypes <- apply(combinations, 1, paste0, collapse = "")  #generating list of all possible genotypes of length L
+landscapes = matrix(0,nrow=nodes,ncol=nsim)   #matrix to store fitness values of all genotypes
+numpeaks = numeric(nsim)                      #vector to store number of peaks of each landscape
+listpeaks = list()                            #vector to store locus of each peak of each landscape
+rankpeaks = list()
+
+#while(i<nsim) #use if generating landscapes of a given ruggedness or number of peaks
+for(i in 1:nsim)  #loop for generating nsim number of landscapes
+{
+  print(i)
+  fit = numeric(nodes); fit[1] = 1  #vector to store fitness of each genotype. defining WT fitness as 1.0
+  peaks = numeric(nodes)            #vector to store if a given genotype is a peak
+  for(z in 2:nodes)
+  {
+    g = genotypes[z]
+    nmut = str_count(g, "1")
+    fit[z] = landscapes_store[z,i]
+  }
+  #estimate number of peaks
+  for(z in 1:nodes)
+  {
+    true=0
+    g = genotypes[z]
+    neighbors = character()
+    for (j in 1:L) 
+    {
+      neighbors <- c(neighbors, paste0(substr(g, 1, j-1), as.character(1-as.integer(substr(g, j, j))), substr(g, j+1, nchar(g))))
+    }
+    ind = which(genotypes %in% neighbors)
+    if(fit[z]>max(fit[ind]))
+    {
+      true=1
+    }
+    peaks[z] = true
+  }
+  indpeaks = which(peaks==1)
+  
+  landscapes[,i] = fit
+  numpeaks[i] = length(indpeaks)
+  listpeaks[[i]] = indpeaks
+  rankpeaks[[i]] = rank(-fit[indpeaks])
+}
+
+
+
+##START OF SIMULATION
 #define mutation rate
 u = 1e-6
 mut = u
