@@ -159,3 +159,16 @@ for (count2 in (1:length(rd)))
     freqpeaks[count,count2] = length(p[,1])/reps
   }
 }
+
+#sample of code for how bootstrapping was done - 
+bstrapreps = (length(rankpeak[,1])) 
+bstraprank = numeric(bstrapreps)
+#bootstrap mean for reps numnber of times
+for(ii in 1:100000)
+{
+  bstraprank[ii] = mean(sample(rankpeak[,1], bstrapreps, replace = TRUE))
+}
+ci <- quantile(bstraprank, probs = c(0.025, 0.975))
+print(ci)
+mean(bstraprank)
+
