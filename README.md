@@ -9,3 +9,5 @@ We focus on landscapes with 5-loci in this work, but the number of loci can be e
 We use the Wright-Fisher model to simulate adaptation on these landscapes. The code for our simulations is in WFmodel.R
 
 All specific code to generate each figure are included in MainText_Code and Supplementary_Code, and the corresponding data files are included in MainText_Data and Supplementary_Data. 
+
+Please note - Csv files names have been changed to match figure numbers. So, codes might return an error when referring to that file, and will need to be edited to reflect the new name.
