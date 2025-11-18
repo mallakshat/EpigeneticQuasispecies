@@ -1,4 +1,4 @@
-data=read.csv("Csv files for figures/EpigeneticRates_HeatMap.csv")
+data=read.csv("EpigeneticRates_HeatMap_S11.csv")
 allowed_values <- c(0.01,0.03,0.1,0.3,1)
 filtered_data <- data %>%
   filter(RateOn %in% allowed_values, RateOff %in% allowed_values)
