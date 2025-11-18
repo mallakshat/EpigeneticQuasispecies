@@ -1,3 +1,6 @@
+##Load the landscapes you want to use for this analysis into the variable landscapes, either the HoC set or the epistatic set
+##The sets of landscapes used in the paper are included in the MainText_Data for the epistatic model, and in SupplementaryData for the HoC model.
+
 peaks_interest = 5
 indices5 = which(numpeaks==peaks_interest)
 nsim2 = length(indices5)
@@ -447,7 +450,7 @@ df <- data.frame(rank_gen, rank_epi, col)
 df$col <- factor(df$col)
 
 #I save df as a csv file, included in Supplementary_Data, and use the following script to make the figure - 
-data = read.csv("Effective landscapes/Heterogeneity_EffectiveLands.csv")
+data = read.csv("Heterogeneity_EffectiveLands_S6.csv")
 
 #shapes <- c("darkgray"= 1,"deepskyblue"= 16,"red" = 16)
 shapes <- c("NA"= 1,"deepskyblue"= 1,"red" = 1)
