@@ -376,7 +376,7 @@ df <- data.frame(rank_gen, rank_epi, col)
 df$col <- factor(df$col)
 
 ##I saved the df as a csv file, located in the Maintext_Data folder. Using that file - 
-data = read.csv("Csv files for figures/Heterogeneity_outcomes.csv")      #choose the correct path for the file
+data = read.csv("Heterogeneity_outcomes_1B.csv") 
 
 shapes <- c("darkgray"= 1,"deepskyblue"= 16,"red" = 16)
 tiff("Figures/Heterogeneity_Rank.tiff", width = 5, height = 5, units = "in", res = 300)
