@@ -1,5 +1,5 @@
 #GlobalPeak Probability vs Npeaks
-data = read.csv("Supplementary/Fig1/Npeaks_vs_ProbGlobal.csv")
+data = read.csv("Npeaks_vs_ProbGlobal_S3.csv")
 
 custom_colors <- c("gen" = "red", "epi" = "deepskyblue")
 custom_shapes <- c("gen" = 21, "epi" = 23)
@@ -24,7 +24,7 @@ ggplot(df, aes(x = npeaks_jittered, y = mean, color = cond, shape = cond)) +
 dev.off()
 
 #MeanFitness vs Npeaks
-data = read.csv("Supplementary/Fig1/Npeaks_vs_ProbGlobal.csv")
+data = read.csv("Npeaks_vs_ProbGlobal_S3.csv")
 
 custom_colors <- c("gen" = "red", "epi" = "deepskyblue")
 custom_shapes <- c("gen" = 21, "epi" = 23)
