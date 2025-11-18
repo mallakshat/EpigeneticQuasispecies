@@ -1,5 +1,5 @@
 #Mu vs GlobalPeakProbability
-data=read.csv("Supplementary/Fig 4/Mu_vs_ProbGlobal.csv")
+data=read.csv("Mu_vs_ProbGlobal_S8.csv")
 
 custom_colors <- c("gen" = "red", "epi" = "deepskyblue")
 custom_shapes <- c("gen" = 21, "epi" = 23)
@@ -19,7 +19,7 @@ ggplot(df, aes(x = log10(mu), y = mean, color = cond, shape = cond)) +
 dev.off()
 
 #Mu vs Mean fitness
-data=read.csv("Supplementary/Fig 4/Mu_vs_ProbGlobal.csv")
+data=read.csv("Mu_vs_ProbGlobal_S8.csv")
 
 custom_colors <- c("gen" = "red", "epi" = "deepskyblue")
 custom_shapes <- c("gen" = 21, "epi" = 23)
