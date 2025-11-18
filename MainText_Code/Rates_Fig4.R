@@ -1,6 +1,6 @@
 ##The same main code as WFmodel.R was used to generate the csv file used here, with mutation rates (u) or switching rates on and off changed. The following code was used to make the figures.
 #Fig 4A
-data=read.csv("Csv files for figures/Mu_vs_Rank.csv")
+data=read.csv("Mu_vs_Rank_4A.csv")
 
 custom_colors <- c("gen" = "red", "epi" = "deepskyblue")
 custom_shapes <- c("gen" = 21, "epi" = 23)
@@ -30,7 +30,7 @@ ggplot(df, aes(x = log10(mu), y = mean, color = cond, shape = cond)) +
 dev.off()
 
 #Fig 4B
-data <- read.csv("Csv files for figures/EpigeneticRates_Diagonal.csv")
+data <- read.csv("EpigeneticRates_Diagonal_4B.csv")
 
 tiff("Figures/EpigeneticRates_Rank_new.tiff", width = 5, height = 5, units = "in", res = 300)
 ggplot(data, aes(x = log10(RateOn), y = mean)) +
@@ -43,7 +43,7 @@ ggplot(data, aes(x = log10(RateOn), y = mean)) +
 dev.off()
 
 #Fig 4C
-data=read.csv("Csv files for figures/EpigeneticRates_HeatMap.csv")
+data=read.csv("EpigeneticRates_HeatMap_4C.csv")
 allowed_values <- c(0.01,0.03,0.1,0.3,1)
 filtered_data <- data %>%
   filter(RateOn %in% allowed_values, RateOff %in% allowed_values)
