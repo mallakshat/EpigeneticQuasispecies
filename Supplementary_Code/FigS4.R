@@ -1,5 +1,7 @@
 #Change for 4 or 6 peaked case. To generate the dataset, please refer to the script for heterogeneity for Fig 1B in MainText_Code
-data = read.csv("Csv files for figures/Heterogeneity_4peaks.csv")
+data = read.csv("Heterogeneity_4peaks_S4A.csv")
+##For the 6peaked case, use this instead - 
+#data = read.csv("Heterogeneity_6peaks_S4B.csv")
 
 shapes <- c("darkgray"= 1,"deepskyblue"= 16,"red" = 16)
 tiff("Figures/Heterogeneity_Rank.tiff", width = 5, height = 5, units = "in", res = 300)
