@@ -121,7 +121,7 @@ means <- df %>%
   summarise(mean_value = mean(delrank))
 
 ##I saved df as a csv file, included in MainText_Data. I used the following code to make the figure - 
-data <- read.csv("Csv files for figures/Rank_Improvement.csv")
+data <- read.csv("Rank_Improvement_Fig2.csv")
 
 ggplot(data, aes(x = (5-epinumpeaks5), y = delrank, group=epinumpeaks5))+
   #geom_violin(trim = FALSE, fill = "steelblue", color = "black") +
