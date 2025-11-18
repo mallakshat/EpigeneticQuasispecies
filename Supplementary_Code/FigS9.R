@@ -1,4 +1,4 @@
-data <- read.csv("Fig 4/Epigeneticrates_NewRatio.csv")
+data <- read.csv("Epigeneticrates_NewRatio_S9.csv")
 
 tiff("Fig 4/EpigeneticDiagonal_NewRatio.tiff", width = 5, height = 5, units = "in", res = 300)
 ggplot(data, aes(x = log10(RateOn), y = mean)) +
