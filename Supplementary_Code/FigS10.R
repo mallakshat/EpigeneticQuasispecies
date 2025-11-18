@@ -1,4 +1,4 @@
-data <- read.csv("Csv files for figures/EpigeneticRates_Diagonal.csv")
+data <- read.csv("EpigeneticRates_Diagonal_S10.csv")
 
 tiff("Supplementary/Fig 4/EpigeneticRates_Fitness.tiff", width = 6, height = 6, units = "in", res = 300)
 ggplot(data, aes(x = log10(RateOn), y = mean_fit)) +
