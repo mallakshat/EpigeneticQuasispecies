@@ -14,7 +14,7 @@ dev.off()
 
 
 #Fig S5B - rank of peak being removed.
-data = read.csv("RankOfPeakRemoved.csv")
+data = read.csv("RankOfPeakRemoved_S5B.csv")
 xvals <- c(1, 2, 3, 4, 5)
 df <- data.frame(x = xvals, y = data$x/sum(data$x))
 
