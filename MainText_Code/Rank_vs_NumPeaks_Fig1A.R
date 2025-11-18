@@ -1,4 +1,4 @@
-data = read.csv("Csv files for figures/Npeaks_vs_Rank.csv")    #Csv file included in MainText_Data folder
+data = read.csv("Npeaks_vs_Rank_1A.csv")    #Csv file included in MainText_Data folder
 
 custom_colors <- c("gen" = "red", "epi" = "deepskyblue")
 custom_shapes <- c("gen" = 21, "epi" = 23)
