@@ -1,5 +1,5 @@
 ##Fig S13A - data generated using the main WF model
-data = read.csv("House of Cards/Npeaks_vs_Rank_HoC.csv")
+data = read.csv("Npeaks_vs_Rank_HoC_S13A.csv")
 custom_colors <- c("gen" = "red", "epi" = "deepskyblue")
 custom_shapes <- c("gen" = 21, "epi" = 23)
 df <- data 
@@ -19,7 +19,7 @@ ggplot(df, aes(x = npeaks, y = mean, color = cond, shape = cond)) +
 dev.off()
 
 #Fig S13B - I removed cases where we had only 1 or 2 points - data generated using the script for Fig 2 in MainText_Code.
-data <- read.csv("RankImprovement_HoC.csv")
+data <- read.csv("RankImprovement_HoC_S13B.csv")
 data <- data %>% filter(epinumpeaks5 != 6)
 data <- data %>% filter(epinumpeaks5 != 2)
 
@@ -35,7 +35,7 @@ ggplot(data, aes(x = (5-epinumpeaks5), y = delrank, group=epinumpeaks5))+
 dev.off()
 
 #Fig S13C - data generated using script for Fig S6 in Supplementary_Code
-data = read.csv("Effective landscapes/Heterogeneity_EffectiveLands_HoC.csv")
+data = read.csv("Heterogeneity_EffectiveLands_HoC_S13C.csv")
 
 shapes <- c("NA"= 1,"deepskyblue"= 1,"red" = 1)
 tiff("Effective landscapes/Correlation_Eff_Epi_HoC.tiff", width = 5, height = 5, units = "in", res = 300)
