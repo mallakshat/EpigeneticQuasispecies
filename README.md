@@ -1,5 +1,5 @@
 This repository contains code and data for manuscript titled "Epigenetic variation can promote adaptation by smoothing rugged fitness landscapes", published in Proceedings of the Royal Society B. 
-DOI: 10.1098/spb.2025.2619
+DOI: 10.1098/rspb.2025.2619
 
 The central tenet of this work is analyzing how epigenetic switching affects adaptation on fitness landscapes. This analysis has two critical aspects - 
 First. generating landscapes which vary significantly in their ruggedness. We use two approaches to do this: 
